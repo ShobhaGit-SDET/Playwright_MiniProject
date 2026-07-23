@@ -5,7 +5,6 @@ const test_1 = require("@playwright/test");
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 /**
@@ -27,6 +26,15 @@ exports.default = (0, test_1.defineConfig)({
         ['junit', { outputFile: 'test-results/junit.xml' }],
         ['json', { outputFile: 'test-results/results.json' }],
         ['list'],
+        ['line'],
+        ['allure-playwright', {
+                detail: true,
+                resultsDir: 'allure-results',
+                environmentInfo: {
+                    os: process.platform,
+                    node_version: process.version,
+                }
+            }]
     ],
     /* Timeout configuration */
     timeout: 30000,
@@ -40,7 +48,8 @@ exports.default = (0, test_1.defineConfig)({
         /* Allow API requests to HTTPS endpoints with certificate quirks during local testing. */
         ignoreHTTPSErrors: true,
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-        trace: 'on-first-retry',
+        video: 'on',
+        trace: 'retain-on-failure'
     },
     /* Configure projects for major browsers */
     projects: [

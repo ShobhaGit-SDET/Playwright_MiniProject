@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const test_1 = require("@playwright/test");
+const allure_playwright_1 = require("allure-playwright");
 test_1.test.describe('JSONPlaceholder - Listing resources', () => {
+    allure_playwright_1.allure.description('Validates successful login');
+    allure_playwright_1.allure.severity('critical');
     const API_BASE_URL = 'http://jsonplaceholder.typicode.com';
     (0, test_1.test)('GET /posts - should list all posts successfully', async ({ request }) => {
         const response = await request.get(`${API_BASE_URL}/posts`);
