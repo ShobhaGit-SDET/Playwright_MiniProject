@@ -8,11 +8,18 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    strategy:
+     matrix:
+        node-version: [18, 20, 24] # Multiple Node.js versions
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+       - name: Checkout repository
+        uses: actions/checkout@v4
+
+       - name: Setup Node.js
+        uses: actions/setup-node@v4
+    
       with:
-        node-version: lts/*
+        node-version: ${{ matrix.node-version }}
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
