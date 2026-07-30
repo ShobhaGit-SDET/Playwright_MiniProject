@@ -1,0 +1,385 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: UI_Basics\basic_elements.spec.ts >> basic elements
+- Location: tests\UI_Basics\basic_elements.spec.ts:4:5
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('#btnClickMe')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#mainContent"
+  - navigation "Practice sections" [ref=e3]:
+    - heading "Sections" [level=3] [ref=e4]
+    - list [ref=e5]:
+      - listitem [ref=e6]:
+        - link "1. Text Input" [ref=e7] [cursor=pointer]:
+          - /url: "#1-text-input"
+      - listitem [ref=e8]:
+        - link "2. Password Input" [ref=e9] [cursor=pointer]:
+          - /url: "#2-password-input"
+      - listitem [ref=e10]:
+        - link "3. Email Input" [ref=e11] [cursor=pointer]:
+          - /url: "#3-email-input"
+      - listitem [ref=e12]:
+        - link "4. Number Input" [ref=e13] [cursor=pointer]:
+          - /url: "#4-number-input"
+      - listitem [ref=e14]:
+        - link "5. Radio Buttons" [ref=e15] [cursor=pointer]:
+          - /url: "#5-radio"
+      - listitem [ref=e16]:
+        - link "6. Checkboxes" [ref=e17] [cursor=pointer]:
+          - /url: "#6-checkbox"
+      - listitem [ref=e18]:
+        - link "7. Dropdown" [ref=e19] [cursor=pointer]:
+          - /url: "#7-dropdown"
+      - listitem [ref=e20]:
+        - link "8. Multi-Select" [ref=e21] [cursor=pointer]:
+          - /url: "#8-multiselect"
+      - listitem [ref=e22]:
+        - link "9. File Upload" [ref=e23] [cursor=pointer]:
+          - /url: "#9-file-upload"
+      - listitem [ref=e24]:
+        - link "10. Date/Time Inputs" [ref=e25] [cursor=pointer]:
+          - /url: "#10-datetime"
+      - listitem [ref=e26]:
+        - link "11. Color & Range" [ref=e27] [cursor=pointer]:
+          - /url: "#11-color-range"
+      - listitem [ref=e28]:
+        - link "12. Buttons" [ref=e29] [cursor=pointer]:
+          - /url: "#12-buttons"
+      - listitem [ref=e30]:
+        - link "13. Links" [ref=e31] [cursor=pointer]:
+          - /url: "#13-links"
+      - listitem [ref=e32]:
+        - link "14. Media Elements" [ref=e33] [cursor=pointer]:
+          - /url: "#14-media"
+      - listitem [ref=e34]:
+        - link "15. Tables & Lists" [ref=e35] [cursor=pointer]:
+          - /url: "#15-tables-lists"
+      - listitem [ref=e36]:
+        - link "16. Modal" [ref=e37] [cursor=pointer]:
+          - /url: "#16-modal"
+      - listitem [ref=e38]:
+        - link "17. Shadow DOM" [ref=e39] [cursor=pointer]:
+          - /url: "#17-shadow"
+      - listitem [ref=e40]:
+        - link "18. Tooltips" [ref=e41] [cursor=pointer]:
+          - /url: "#18-tooltip"
+      - listitem [ref=e42]:
+        - link "19. Authentication" [ref=e43] [cursor=pointer]:
+          - /url: "#19-auth"
+      - listitem [ref=e44]:
+        - link "20. Auto-suggest" [ref=e45] [cursor=pointer]:
+          - /url: "#20-auto-suggest"
+      - listitem [ref=e46]:
+        - link "21. Dependent Dropdown" [ref=e47] [cursor=pointer]:
+          - /url: "#21-dependent-dropdown"
+      - listitem [ref=e48]:
+        - link "22. Masked Input" [ref=e49] [cursor=pointer]:
+          - /url: "#22-masked-input"
+      - listitem [ref=e50]:
+        - link "23. Double Click" [ref=e51] [cursor=pointer]:
+          - /url: "#23-double-click"
+      - listitem [ref=e52]:
+        - link "24. Drag & Drop" [ref=e53] [cursor=pointer]:
+          - /url: "#24-drag-drop"
+      - listitem [ref=e54]:
+        - link "25. Sortable Table" [ref=e55] [cursor=pointer]:
+          - /url: "#25-sortable-table"
+      - listitem [ref=e56]:
+        - link "26. Modal / Toast / Alert" [ref=e57] [cursor=pointer]:
+          - /url: "#26-modal-toast-alert"
+      - listitem [ref=e58]:
+        - link "27. iFrame Interaction" [ref=e59] [cursor=pointer]:
+          - /url: "#27-iframe"
+      - listitem [ref=e60]:
+        - link "28. Shadow DOM Advanced" [ref=e61] [cursor=pointer]:
+          - /url: "#28-shadow-advanced"
+      - listitem [ref=e62]:
+        - link "29. Multi-tab Navigation" [ref=e63] [cursor=pointer]:
+          - /url: "#29-multi-tab"
+  - main [ref=e64]:
+    - generic [ref=e65]:
+      - heading "1. Text Input" [level=2] [ref=e66]
+      - generic [ref=e67]: Basic text input to type any value.
+      - generic [ref=e68]: Enter text
+      - textbox "Enter text" [ref=e69]:
+        - /placeholder: Type something
+      - generic [ref=e70]: —
+    - generic [ref=e71]:
+      - heading "2. Password Input" [level=2] [ref=e72]
+      - generic [ref=e73]: Password field — characters hidden.
+      - generic [ref=e74]: Password
+      - textbox "Password" [ref=e75]:
+        - /placeholder: Enter password
+      - generic [ref=e76]: —
+    - generic [ref=e77]:
+      - heading "3. Email Input" [level=2] [ref=e78]
+      - generic [ref=e79]: Input field to enter email addresses.
+      - generic [ref=e80]: Email
+      - textbox "Email" [ref=e81]:
+        - /placeholder: name@example.com
+      - generic [ref=e82]: —
+    - generic [ref=e83]:
+      - heading "4. Number Input" [level=2] [ref=e84]
+      - generic [ref=e85]: Input field to enter numeric values only.
+      - generic [ref=e86]: Number
+      - spinbutton "Number" [ref=e87]
+      - generic [ref=e88]: —
+    - generic [ref=e89]:
+      - heading "5. Radio Buttons" [level=2] [ref=e90]
+      - generic [ref=e91]: Choose one option from multiple choices.
+      - group "Gender" [ref=e92]:
+        - generic [ref=e93]: Gender
+        - generic [ref=e94]:
+          - radio "Male" [ref=e95]
+          - text: Male
+        - generic [ref=e96]:
+          - radio "Female" [ref=e97]
+          - text: Female
+      - generic [ref=e98]: —
+    - generic [ref=e99]:
+      - heading "6. Checkboxes" [level=2] [ref=e100]
+      - generic [ref=e101]: Select multiple options if needed.
+      - generic [ref=e102]:
+        - checkbox "Subscribe" [ref=e103]
+        - text: Subscribe
+      - generic [ref=e104]:
+        - checkbox "Agree" [ref=e105]
+        - text: Agree
+      - generic [ref=e106]: —
+    - generic [ref=e107]:
+      - heading "7. Dropdown" [level=2] [ref=e108]
+      - generic [ref=e109]: Select one option from the dropdown list.
+      - generic [ref=e110]: Choose a car
+      - combobox "Choose a car" [ref=e111]:
+        - option "Select a car" [selected]
+        - option "BMW"
+        - option "Audi"
+        - option "Tesla"
+      - generic [ref=e112]: —
+    - generic [ref=e113]:
+      - heading "8. Multi-Select" [level=2] [ref=e114]
+      - generic [ref=e115]: Select multiple options by holding Ctrl/Cmd.
+      - generic [ref=e116]: Fruits
+      - listbox "Fruits" [ref=e117]:
+        - option "Apple" [ref=e118]
+        - option "Banana" [ref=e119]
+        - option "Mango" [ref=e120]
+      - generic [ref=e121]: —
+    - generic [ref=e122]:
+      - heading "9. File Upload" [level=2] [ref=e123]
+      - generic [ref=e124]: Upload file for testing. (Single file)
+      - generic [ref=e125]: Choose file
+      - button "Choose file" [ref=e126]
+      - generic [ref=e127]: —
+    - generic [ref=e128]:
+      - heading "10. Date/Time Inputs" [level=2] [ref=e129]
+      - generic [ref=e130]: Date/time controls for automation.
+      - generic [ref=e131]: Date
+      - textbox "Date" [ref=e132]
+      - generic [ref=e133]: Time
+      - textbox "Time" [ref=e134]
+      - generic [ref=e135]: Date & Time
+      - textbox "Date & Time" [ref=e136]
+      - generic [ref=e137]: Month
+      - textbox "Month" [ref=e138]
+      - generic [ref=e139]: Week
+      - textbox "Week" [ref=e140]
+      - generic [ref=e141]: —
+    - generic [ref=e142]:
+      - heading "11. Color & Range" [level=2] [ref=e143]
+      - generic [ref=e144]: Choose color and numeric range values.
+      - generic [ref=e145]: Color
+      - textbox "Color" [ref=e146]: "#000000"
+      - generic [ref=e147]: Range
+      - slider "Range" [ref=e148]: "50"
+      - generic [ref=e149]: —
+    - generic [ref=e150]:
+      - heading "12. Buttons" [level=2] [ref=e151]
+      - generic [ref=e152]: Various buttons with different actions.
+      - button "Click Me" [ref=e153] [cursor=pointer]
+      - button "Show Alert" [ref=e154] [cursor=pointer]
+      - button "Toggle Div" [ref=e155] [cursor=pointer]
+      - generic [ref=e156]: This div can be toggled.
+      - generic [ref=e157]: —
+    - generic [ref=e158]:
+      - heading "13. Links" [level=2] [ref=e159]
+      - generic [ref=e160]: Internal and external link examples.
+      - link "Go to Text Input" [ref=e161] [cursor=pointer]:
+        - /url: "#1-text-input"
+      - link "External Link" [ref=e162] [cursor=pointer]:
+        - /url: https://example.com
+      - generic [ref=e163]: —
+    - generic [ref=e164]:
+      - heading "14. Media Elements" [level=2] [ref=e165]
+      - generic [ref=e166]: Images, videos, audio, canvas examples.
+      - img "Sample Image" [ref=e167]
+      - generic [ref=e168]: Your browser does not support the video element.
+      - generic [ref=e169]: Your browser does not support the audio element.
+      - generic [ref=e171]: —
+    - generic [ref=e172]:
+      - heading "15. Tables & Lists" [level=2] [ref=e173]
+      - generic [ref=e174]: Tables and lists for automation assertions.
+      - table [ref=e175]:
+        - rowgroup [ref=e176]:
+          - row "Name Age" [ref=e177]:
+            - columnheader "Name" [ref=e178]
+            - columnheader "Age" [ref=e179]
+        - rowgroup [ref=e180]:
+          - row "John 28" [ref=e181]:
+            - cell "John" [ref=e182]
+            - cell "28" [ref=e183]
+          - row "Jane 32" [ref=e184]:
+            - cell "Jane" [ref=e185]
+            - cell "32" [ref=e186]
+      - list "Sample items" [ref=e187]:
+        - listitem [ref=e188]: Item 1
+        - listitem [ref=e189]: Item 2
+      - generic [ref=e190]: Tables & Lists ready for automation assertions
+    - generic [ref=e191]:
+      - heading "16. Modal" [level=2] [ref=e192]
+      - generic [ref=e193]: Open and close modal dialogs.
+      - button "Open Modal" [ref=e194] [cursor=pointer]
+      - generic [ref=e195]: —
+    - generic [ref=e196]:
+      - heading "17. Shadow DOM" [level=2] [ref=e197]
+      - generic [ref=e198]: Interact with Shadow DOM elements.
+      - button "Shadow Button" [ref=e200]
+      - generic [ref=e201]: —
+    - generic [ref=e202]:
+      - heading "18. Tooltips" [level=2] [ref=e203]
+      - generic [ref=e204]: Hover to see tooltip messages.
+      - button "Hover me" [ref=e205] [cursor=pointer]
+      - generic [ref=e206]: —
+    - generic [ref=e207]:
+      - heading "19. Authentication" [level=2] [ref=e208]
+      - generic [ref=e209]: Simulated login for testing.
+      - button "Login" [ref=e210] [cursor=pointer]
+      - generic [ref=e211]: —
+    - generic [ref=e212]:
+      - heading "20. Auto-suggest / Autocomplete" [level=2] [ref=e213]
+      - generic [ref=e214]: Start typing and select from suggestions.
+      - generic [ref=e215]: Type fruit
+      - textbox "Type fruit" [ref=e216]
+      - generic [ref=e217]: —
+    - generic [ref=e218]:
+      - heading "21. Dependent Dropdown" [level=2] [ref=e219]
+      - generic [ref=e220]: Select a country, then select a city.
+      - generic [ref=e221]: Country
+      - combobox "Country" [ref=e222]:
+        - option "Select Country" [selected]
+        - option "India"
+        - option "USA"
+        - option "UK"
+      - generic [ref=e223]: City
+      - combobox "City" [ref=e224]
+      - generic [ref=e225]: —
+    - generic [ref=e226]:
+      - heading "22. Masked Input" [level=2] [ref=e227]
+      - generic [ref=e228]: Input is masked dynamically (example mask).
+      - generic [ref=e229]: Masked
+      - textbox "Masked" [ref=e230]:
+        - /placeholder: Enter masked value
+      - generic [ref=e231]: —
+    - generic [ref=e232]:
+      - heading "23. Double Click" [level=2] [ref=e233]
+      - generic [ref=e234]: Double click on the button.
+      - button "Double Click Me" [ref=e235] [cursor=pointer]
+      - generic [ref=e236]: —
+    - generic [ref=e237]:
+      - heading "24. Drag & Drop" [level=2] [ref=e238]
+      - generic [ref=e239]: Drag the item and drop into the target.
+      - button "Drag Me" [ref=e240]
+      - region "Drop zone" [ref=e241]: Drop Here
+      - generic [ref=e242]: —
+    - generic [ref=e243]:
+      - heading "25. Sortable Table" [level=2] [ref=e244]
+      - generic [ref=e245]: Click column headers to sort table.
+      - table [ref=e246]:
+        - rowgroup [ref=e247]:
+          - row "Name Age" [ref=e248]:
+            - columnheader "Name" [ref=e249] [cursor=pointer]
+            - columnheader "Age" [ref=e250] [cursor=pointer]
+        - rowgroup [ref=e251]:
+          - row "John 28" [ref=e252]:
+            - cell "John" [ref=e253]
+            - cell "28" [ref=e254]
+          - row "Jane 32" [ref=e255]:
+            - cell "Jane" [ref=e256]
+            - cell "32" [ref=e257]
+          - row "Mark 25" [ref=e258]:
+            - cell "Mark" [ref=e259]
+            - cell "25" [ref=e260]
+      - generic [ref=e261]: —
+    - generic [ref=e262]:
+      - heading "26. Modal / Toast / Alert" [level=2] [ref=e263]
+      - generic [ref=e264]: Advanced modal example.
+      - button "Open Advanced Modal" [ref=e265] [cursor=pointer]
+      - generic [ref=e266]: —
+    - generic [ref=e267]:
+      - heading "27. iFrame Interaction" [level=2] [ref=e268]
+      - generic [ref=e269]: Interact with iFrame content safely.
+      - iframe [ref=e270]:
+        - paragraph [ref=f1e2]: Iframe content
+      - button "Change iFrame Background" [ref=e271] [cursor=pointer]
+      - generic [ref=e272]: —
+    - generic [ref=e273]:
+      - heading "28. Shadow DOM Advanced" [level=2] [ref=e274]
+      - generic [ref=e275]: Advanced Shadow DOM element interaction.
+      - button "Shadow Adv Button" [ref=e277]
+      - generic [ref=e278]: —
+    - generic [ref=e279]:
+      - heading "29. Multi-tab Navigation" [level=2] [ref=e280]
+      - generic [ref=e281]: Open a new browser tab.
+      - button "Open New Tab" [ref=e282] [cursor=pointer]
+      - generic [ref=e283]: —
+```
+
+# Test source
+
+```ts
+  1  | import{test,expect}from'@playwright/test';
+  2  | 
+  3  | 
+  4  | test('basic elements',async({page})=>{
+  5  |     
+  6  |     await page.goto('https://dd-demo-tau.vercel.app/web_elements.html');
+  7  |     await page.waitForTimeout(3000);
+  8  | 
+  9  |     const btnclickMe = page.locator('#btnClickMe');
+> 10 |     await btnclickMe.scrollIntoViewIfNeeded();
+     |                      ^ Error: locator.scrollIntoViewIfNeeded: Test timeout of 30000ms exceeded.
+  11 | 
+  12 |       await page.waitForTimeout(2000);
+  13 | 
+  14 |     await btnclickMe.click();
+  15 | 
+  16 |    // page.locator('#btnClickMe').click();
+  17 | 
+  18 |    expect(page.locator('div#buttonMsg')).toHaveText('Click Me button clicked'); 
+  19 |    
+  20 |    await page.close();
+  21 | 
+  22 | });
+```

@@ -10,7 +10,12 @@
     "test:ui": "playwright test --ui",
     "test:mini-capstone": "playwright test MiniCapstoneProject.spec.ts",
     "test:mini-capstone:headed": "playwright test MiniCapstoneProject.spec.ts --headed",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "clean": "rimraf allure-results allure-report",
+    "test:allure": "npm run clean && npx playwright test"
   },
   "keywords": [
     "playwright",
@@ -28,6 +33,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
+    "csv-parse": "^7.0.1",
     "dotenv": "^17.4.2"
   }
 }

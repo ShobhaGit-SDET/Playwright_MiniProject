@@ -1,0 +1,86 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: OrangeHRM.spec.ts >> OrangeHRM Login - Data Driven POM >> negative-wrong-password
+- Location: tests\OrangeHRM.spec.ts:15:9
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('div.orangehrm-login-form')
+Expected: visible
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 10000ms
+  - waiting for locator('div.orangehrm-login-form')
+
+```
+
+# Test source
+
+```ts
+  1  | import { expect, Locator, Page } from '@playwright/test';
+  2  | 
+  3  | export class OrangeHRMLoginPage {
+  4  |   readonly page: Page;
+  5  |   readonly usernameInput: Locator;
+  6  |   readonly passwordInput: Locator;
+  7  |   readonly loginButton: Locator;
+  8  |   readonly errorMessage: Locator;
+  9  |   readonly fieldErrorMessages: Locator;
+  10 |   readonly loginForm: Locator;
+  11 | 
+  12 |   //static readonly loginPath = '/web/index.php/auth/login';
+  13 | 
+  14 |   static readonly baseURL = process.env.BASE_URL || 'https://opensource-demo.orangehrmlive.com';
+  15 | 
+  16 |   constructor(page: Page) {
+  17 |     this.page = page;
+  18 |     this.usernameInput = page.locator('input[name="username"]');
+  19 |     this.passwordInput = page.locator('input[name="password"]');
+  20 |     this.loginButton = page.locator('button[type="submit"]');
+  21 |     this.errorMessage = page.locator('.oxd-alert-content-text');
+  22 |     this.fieldErrorMessages = page.locator('.oxd-input-field-error-message');
+  23 |     this.loginForm = page.locator('div.orangehrm-login-form');
+  24 |   }
+  25 | 
+  26 |   async goto(): Promise<void> {
+  27 |     //await this.page.goto(OrangeHRMLoginPage.baseURL);
+  28 |     await this.page.goto(OrangeHRMLoginPage.baseURL + '/web/index.php/auth/login');
+> 29 |     await expect(this.loginForm).toBeVisible({ timeout: 10000 });
+     |                                  ^ Error: expect(locator).toBeVisible() failed
+  30 |     await expect(this.usernameInput).toBeVisible();
+  31 |     await expect(this.passwordInput).toBeVisible();
+  32 |     await expect(this.loginButton).toBeEnabled();
+  33 |   }
+  34 | 
+  35 |   async login(username: string, password: string): Promise<void> {
+  36 |     await this.usernameInput.fill(username);
+  37 |     await this.passwordInput.fill(password);
+  38 |     await this.loginButton.click();
+  39 |   }
+  40 | 
+  41 |   async assertLoginError(expectedMessage: string): Promise<void> {
+  42 |     await expect(this.errorMessage).toBeVisible({ timeout: 10000 });
+  43 |     await expect(this.errorMessage).toHaveText(expectedMessage);
+  44 |   }
+  45 | 
+  46 |   async assertRequiredFieldErrors(expectedCount: number): Promise<void> {
+  47 |     await expect(this.fieldErrorMessages).toHaveCount(expectedCount, { timeout: 10000 });
+  48 |     await expect(this.fieldErrorMessages).toHaveText(Array(expectedCount).fill('Required'));
+  49 |   }
+  50 | }
+  51 | 
+```

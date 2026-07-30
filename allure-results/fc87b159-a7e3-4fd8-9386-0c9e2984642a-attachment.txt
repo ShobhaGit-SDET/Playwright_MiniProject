@@ -1,6 +1,0 @@
-{
-  userId: 1,
-  title: 'Playwright API Testing',
-  body: 'Learning Interfaces',
-  id: 101
-}
